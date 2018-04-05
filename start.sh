@@ -1,11 +1,11 @@
 #!/bin/sh
 
 if [ -z "$QUEUE_TRIES" ]; then
-	QUEUE_TRIES="3"
+	QUEUE_TRIES=3
 fi
 
 if [ -z "$QUEUE_TIMEOUT" ]; then
-	QUEUE_TIMEOUT="60"
+	QUEUE_TIMEOUT=60
 fi
 
 sed -i -e "s~%%QUEUE_CONNECTION%%~$QUEUE_CONNECTION~" \
