@@ -9,8 +9,15 @@ ENV SUPERVISOR_VERSION=3.3.3
 ENV QUEUE_CONNECTION=sqs
 ENV QUEUE_NAME=default
 
+# Install some dependenties
+RUN set -ex && \
+    apk add --no-cache --virtual .build-deps \
+    freetype-dev \
+    libjpeg-turbo-dev \
+    libpng-dev
+
 # Install pdo if you want to use database queue
-RUN docker-php-ext-install pdo pdo_mysql pcntl posix
+RUN docker-php-ext-install pdo pdo_mysql pcntl posix gd
 
 # Install supervisor
 RUN apk update && apk add -u python=$PYTHON_VERSION py-pip=$PY_PIP_VERSION
