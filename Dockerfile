@@ -32,6 +32,9 @@ RUN mkdir -p /usr/src/php/ext/redis \
     && echo 'redis' >> /usr/src/php-available-exts \
     && docker-php-ext-install redis
 
+RUN apk add --no-cache libssl1.0
+RUN apk add --no-cache --virtual openssl-dev
+
 RUN pecl install mongodb && \
     docker-php-ext-enable mongodb
 
