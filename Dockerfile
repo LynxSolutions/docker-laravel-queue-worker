@@ -11,12 +11,13 @@ RUN set -ex && \
     $PHPIZE_DEPS \
     freetype-dev \
     libjpeg-turbo-dev \
-    libpng-dev
+    libpng-dev \
+    zlib-dev
 
 # Install pdo if you want to use database queue
-RUN docker-php-ext-install pdo pdo_mysql pcntl posix gd
+RUN docker-php-ext-install pdo pdo_mysql pcntl posix gd zip
 
-ENV PYTHON_VERSION=2.7.15-r1
+ENV PYTHON_VERSION=2.7.15-r2
 ENV PY_PIP_VERSION=10.0.1-r0
 ENV SUPERVISOR_VERSION=3.3.3
 
